@@ -1,17 +1,22 @@
-import {
-  APIGatewayProxyEvent,
-  APIGatewayProxyResult,
-} from "aws-lambda";
+import { response } from "../../libs/response";
+import { ScheduleServices } from "../../model/schedules";
+import { createDBClient } from "../../model/db";
+import { APIGatewayProxyResult } from "aws-lambda";
 
-export const handler = async (
-  event: APIGatewayProxyEvent
-): Promise<APIGatewayProxyResult> => {
-  const body = JSON.parse(event.body!);
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: "Hello, Serverless with TypeScript!",
-      input: body.name,
-    }),
-  };
+export const handler = async (event): Promise<APIGatewayProxyResult> => {
+  const body: Schedules = event.body!;
+  const client = createDBClient();
+
+  try {
+    // Connect to db
+    await client.connect();
+    // Insert schedule to db
+    const scheduleServices = new ScheduleServices(client);
+    const newScheduleId = await scheduleServices.insertSchedule(body);
+    return response(201, { message: "Create schedule successfully.", id: newScheduleId });
+  } catch (error) {
+    return response(500, { error });
+  } finally {
+    await client.end();
+  }
 };

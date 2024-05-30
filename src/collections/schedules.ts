@@ -1,4 +1,4 @@
-import schema from "../schemas/schema";
+import { scheduleSchema } from "../schemas/schema";
 
 export default {
   createSchedule: {
@@ -7,10 +7,10 @@ export default {
       {
         http: {
           method: "post",
-          path: "hello",
+          path: "schedules",
           request: {
             schemas: {
-              "application/json": schema,
+              "application/json": scheduleSchema,
             },
           },
         },
@@ -23,8 +23,40 @@ export default {
       {
         http: {
           method: "get",
-          path: "hello",
-          request: {},
+          path: "schedules",
+        },
+      },
+    ],
+  },
+  getScheduleById: {
+    handler: `src/functions/schedules/getSchedule.handler`,
+    events: [
+      {
+        http: {
+          method: "get",
+          path: "schedules/{id}",
+        },
+      },
+    ],
+  },
+  updateScheduleById: {
+    handler: `src/functions/schedules/updateSchedule.handler`,
+    events: [
+      {
+        http: {
+          method: "put",
+          path: "schedules/{id}",
+        },
+      },
+    ],
+  },
+  deleteScheduleById: {
+    handler: `src/functions/schedules/deleteSchedule.handler`,
+    events: [
+      {
+        http: {
+          method: "delete",
+          path: "schedules/{id}",
         },
       },
     ],

@@ -1,7 +1,22 @@
-export default {
+export const scheduleSchema = {
   type: "object",
   properties: {
-    name: { type: 'string' }
+    account_id: { type: "number" },
+    agent_id: { type: "number" },
+    start_time: { type: "string" },
+    end_time: { type: "string" },
   },
-  required: ['name']
-} as const;
+  required: [],
+};
+
+export const taskSchema = {
+  type: "object",
+  properties: {
+    account_id: { type: "number" },
+    schedule_id: { type: "string" },
+    start_time: { type: "string" },
+    duration: { type: "number" },
+    type: { type: "string" },
+  },
+  required: [],
+};

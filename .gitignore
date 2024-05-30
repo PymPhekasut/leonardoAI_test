@@ -11,3 +11,6 @@ jspm_packages
 
 # Ignore dotenv environment variables file
 .env
+
+# Ignore .build
+build
