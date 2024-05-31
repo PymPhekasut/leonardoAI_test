@@ -9,6 +9,7 @@ For the database, I'm using a docker for running local database with PostgreSQL 
 * You have to insert DB config in env file, see the config at `docker-compose.yml`
 
 ### Installation/deployment instructions
+** The repo is available in `master` branch
 
 - Install packages
 ```
