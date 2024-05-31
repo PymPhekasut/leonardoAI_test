@@ -56,7 +56,7 @@ describe("handler", () => {
       pathParameters: {
         id: mockScheduleId,
       },
-      body: mockScheduleBody,
+      body: JSON.stringify(mockScheduleBody),
     };
 
     const result = await handler(event);
@@ -88,7 +88,7 @@ describe("handler", () => {
       pathParameters: {
         id: mockScheduleId,
       },
-      body: mockScheduleBody,
+      body: JSON.stringify(mockScheduleBody),
     };
     const result = await handler(event);
     expect(mockClient.connect).toHaveBeenCalled();
@@ -128,7 +128,7 @@ describe("handler", () => {
       pathParameters: {
         id: mockSchedule.id,
       },
-      body: mockScheduleBody,
+      body: JSON.stringify(mockScheduleBody),
     };
     const result = await handler(event);
     expect(mockClient.connect).toHaveBeenCalled();

@@ -59,7 +59,7 @@ var handler = function (event) { return __awaiter(void 0, void 0, void 0, functi
                 return [4 /*yield*/, scheduleServices.insertSchedule(body)];
             case 3:
                 newScheduleId = _a.sent();
-                return [2 /*return*/, (0, response_1.response)(200, { message: "Create schedules successfully.", id: newScheduleId })];
+                return [2 /*return*/, (0, response_1.response)(201, { message: "Create schedule successfully.", id: newScheduleId })];
             case 4:
                 error_1 = _a.sent();
                 return [2 /*return*/, (0, response_1.response)(500, { error: error_1 })];

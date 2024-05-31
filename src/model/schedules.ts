@@ -31,6 +31,7 @@ export class ScheduleServices {
       await this.client.query(query, values);
       return id;
     } catch (error) {
+      console.log(error);
       throw error;
     }
   }

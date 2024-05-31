@@ -40,7 +40,7 @@ exports.handler = void 0;
 var response_1 = require("../../libs/response");
 var db_1 = require("../../model/db");
 var tasks_1 = require("../../model/tasks");
-var handler = function (event) { return __awaiter(void 0, void 0, void 0, function () {
+var handler = function () { return __awaiter(void 0, void 0, void 0, function () {
     var client, taskServices, listAllTasks, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -63,7 +63,7 @@ var handler = function (event) { return __awaiter(void 0, void 0, void 0, functi
                     return [2 /*return*/, (0, response_1.response)(404, { message: "Not found task." })];
                 }
                 // Return list of task if found in db
-                return [2 /*return*/, (0, response_1.response)(200, { task: listAllTasks })];
+                return [2 /*return*/, (0, response_1.response)(200, { tasks: listAllTasks })];
             case 4:
                 error_1 = _a.sent();
                 return [2 /*return*/, (0, response_1.response)(500, error_1)];

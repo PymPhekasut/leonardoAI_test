@@ -59,7 +59,7 @@ var handler = function (event) { return __awaiter(void 0, void 0, void 0, functi
                 return [4 /*yield*/, taskServices.insertTask(body)];
             case 3:
                 newTaskId = _a.sent();
-                return [2 /*return*/, (0, response_1.response)(200, { message: "Create task successfully.", id: newTaskId })];
+                return [2 /*return*/, (0, response_1.response)(201, { message: "Create task successfully.", id: newTaskId })];
             case 4:
                 error_1 = _a.sent();
                 return [2 /*return*/, (0, response_1.response)(500, { error: error_1 })];

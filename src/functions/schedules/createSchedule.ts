@@ -4,7 +4,7 @@ import { createDBClient } from "../../model/db";
 import { APIGatewayProxyResult } from "aws-lambda";
 
 export const handler = async (event): Promise<APIGatewayProxyResult> => {
-  const body: Schedules = event.body!;
+  const body: Schedules = JSON.parse(event.body!);
   const client = createDBClient();
 
   try {

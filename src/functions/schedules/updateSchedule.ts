@@ -6,7 +6,7 @@ import { APIGatewayProxyResult } from "aws-lambda";
 export const handler = async (event): Promise<APIGatewayProxyResult> => {
   const client = createDBClient();
   const scheduleId = event.pathParameters?.id as string;
-  const body: Schedules = event.body!;
+  const body: Schedules = JSON.parse(event.body!);
 
   try {
     // Connect to db

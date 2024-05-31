@@ -45,7 +45,7 @@ describe("handler", () => {
       body: JSON.stringify({ message: "Create schedule successfully.", id: mockScheduleId }),
     });
     const event = {
-      body: mockScheduleBody,
+      body: JSON.stringify(mockScheduleBody),
     };
     const result = await handler(event);
     expect(mockClient.connect).toHaveBeenCalled();
@@ -77,7 +77,7 @@ describe("handler", () => {
       body: JSON.stringify({ error: error }),
     });
     const event = {
-      body: mockScheduleBody,
+      body: JSON.stringify(mockScheduleBody),
     };
     const result = await handler(event);
     expect(mockClient.connect).toHaveBeenCalled();
