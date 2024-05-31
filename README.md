@@ -6,7 +6,7 @@ First of all, I really appreciate that you invited me to this stage and I'm very
 In this repo, I'm using TypeScript as required to build APIs via AWS Lambda for Serverless endpoints. Also, using Jest for unit-tests and integration tests.
 
 For the database, I'm using a docker for running local database with PostgreSQL as preferred and pgAdmin4 on browser.
-
+* You have to insert DB config in env file, see the config at `docker-compose.yml`
 
 ### Installation/deployment instructions
 
